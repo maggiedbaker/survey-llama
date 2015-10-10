@@ -18,6 +18,20 @@
   <title></title>
 </head>
 <body>
+
+<ul class = "navbar">
+<% if session[:user_id] %>
+  <li class = "bar"> <a href = "/surveys"> Surveys </a>
+  <li class="bar"><a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a></li>
+  <li class = "bar"> <a href = "/signout"> Signout </a>
+<%else%>
+  <li class = "bar"> <a href = "/surveys"> Surveys </a>
+  <li class = "bar"> <a href = "/signup"> Create Account</a>
+  <li class = "bar"> <a href = "/signin"> Sign In </a>
+<%end%>
+</ul>
+
+
 <div id="content">
   <%= yield %>
 </div>
