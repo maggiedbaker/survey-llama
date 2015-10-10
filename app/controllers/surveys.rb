@@ -2,8 +2,8 @@ get '/' do
   redirect '/surveys'
 end
 
-get '/surveys' do 
-  @surverys = Survey.all
+get '/surveys' do
+  @surveys = Survey.all
   erb :'surveys/index'
 end
 
