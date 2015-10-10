@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   def has_taken_survey?(survey)
-    completions = Completed_Survey.all
-    return false if completions.select { |completion| completion.user_id == current_user.id && completion.survey_id == survey.id }.empty?
+    return false if CompletedSurvey.where(user_id: current_user.id, survey_id: survey.id).empty?
     return true
   end
 
