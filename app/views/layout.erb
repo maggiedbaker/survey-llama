@@ -20,9 +20,9 @@
 <body>
 
 <ul class = "navbar">
-<% if session[:user_id] %>
+<% if logged_in? %>
   <li class = "bar"> <a href = "/surveys"> Surveys </a></li>
-  <li class="bar"><a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a></li>
+  <li class="bar"><a href="/users/<%= session[:user_id] %>"><%= @current_user.username %></a></li>
   <li class = "bar"> <a href = "/logout"> Signout </a></li>
 <%else%>
   <li class = "bar"> <a href = "/surveys"> Surveys </a></li>
