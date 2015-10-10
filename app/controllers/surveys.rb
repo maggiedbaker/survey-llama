@@ -11,16 +11,18 @@ get '/surveys/new' do
   erb :'/surveys/new'
 end
 
-post '/surveys/new' do
-  user = User.find_by(username: session[:username])
-  new_survey = Survey.new(user_id: user.id, title: params[:title])
-  choice = new_survey.questions[0].choices.find_by(text: params[:choice])
-  ## modify this when implementing multi question surveys. questions should be many not just index 0
-  choice.selected += 1
-  user.surveys << new_survey
-  if @survey.save
+post '/surveys' do
+  user = User.find_by(username: session[:user_id])
+  new_survey = user.surveys.create(user_id: user.id, title: params[:title])
+  question = new_survey.questions.create(text: params[:question]) #modify logic here if mutliple questions
+  params[:choices].reject! { |key, choice| choice[:text] == "" }
+  params[:choices].values.each do |choice|
+    question.choices.create(text: choice[:text])
+  end
+  if user.save
     redirect ('/surveys')
   else
+    @errors = user.errors.full_messages
     redirect ('/surveys/new')
   end
 end
