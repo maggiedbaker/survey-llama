@@ -4,7 +4,7 @@
   <h3><a href = "/surveys/<%= survey.title%>"> <%=survey.title %> </a></h13>
   <p>
   <a href = "/surveys/<%=survey.title%>/results">Results </a>
-  <% if logged_in? %>
+  <% if survey.current_user_can_take? %>
   <a href="/surveys/<%=survey.title%>">Take Survey</a>
   </p>
   <%end%>

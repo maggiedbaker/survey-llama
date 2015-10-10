@@ -6,4 +6,10 @@ class Survey < ActiveRecord::Base
 
   validates :user_id, :title, presence: true
 
+  def current_user_can_take?
+    return false if !logged_in?
+    return false if current_user.has_taken_survey?(self)
+    return true
+  end
+
 end
