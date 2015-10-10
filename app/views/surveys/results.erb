@@ -1,1 +1,6 @@
 <h1>Results for <%=@survey.title%></h2>
+<ul>
+  <% @choice_stats.each do |choice| %>
+    <li><%=choice[0]%>: <%=choice[1]%></li>
+  <% end %>
+</ul>
