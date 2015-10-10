@@ -9,5 +9,9 @@ end
 
 get '/surveys/:name' do
   @survey = Survey.find(params[:name])
-  erb :'surveys/show'
+  if logged_in?
+    erb :'surveys/show'
+  else
+    redirect '/login'
+  end
 end
