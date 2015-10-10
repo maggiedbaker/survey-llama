@@ -2,7 +2,7 @@ get '/' do
   redirect '/surveys'
 end
 
-get '/surveys' do 
+get '/surveys' do
   @surveys = Survey.all
   erb :'surveys/index'
 end
