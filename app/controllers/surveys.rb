@@ -4,7 +4,7 @@ end
 
 get '/surveys' do
   @surveys = Survey.all
-  erb :'surveys/index'
+  erb :'/surveys/index'
 end
 
 get '/surveys/new' do
@@ -30,7 +30,7 @@ end
 get '/surveys/:name' do
   @survey = Survey.find_by(title: params[:name])
   if logged_in?
-    erb :'surveys/show'
+    erb :'/surveys/show'
   else
     redirect '/login'
   end
