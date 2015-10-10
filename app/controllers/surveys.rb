@@ -35,3 +35,8 @@ get '/surveys/:name' do
     redirect '/login'
   end
 end
+
+get '/surveys/:name/results' do |name|
+  @survey = Survey.find_by(title: name)
+  erb :'/surveys/results'
+end
