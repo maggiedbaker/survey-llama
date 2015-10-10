@@ -9,4 +9,5 @@ end
 
 get '/surveys/:name' do
   @survey = Survey.find(params[:name])
+  erb :'surveys/show'
 end
