@@ -28,7 +28,7 @@ post '/surveys' do
 end
 
 get '/surveys/:name' do
-  @survey = Survey.find(params[:name])
+  @survey = Survey.find_by(title: params[:name])
   if logged_in?
     erb :'surveys/show'
   else

@@ -21,12 +21,11 @@
 
 <ul class = "navbar">
 <% if logged_in? %>
-  <li class = "bar"> <a href = "/surveys"> Surveys </a></li>
-  <li class="bar"><a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a></li>
   <li class="bar"><a href="/surveys/new">Create a Survey</a></li>
+  <!-- changed this link to a profile page later -->
+  <li class="bar">Yo! <%= current_user.username %></a></li>
   <li class = "bar"> <a href = "/logout"> Signout </a></li>
 <%else%>
-  <li class = "bar"> <a href = "/surveys"> Surveys </a></li>
   <li class = "bar"> <a href = "/signup"> Create Account</a></li>
   <li class = "bar"> <a href = "/login"> Sign In </a></li>
 <%end%>
