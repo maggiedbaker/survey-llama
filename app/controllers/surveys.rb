@@ -38,5 +38,6 @@ end
 
 get '/surveys/:name/results' do |name|
   @survey = Survey.find_by(title: name)
+  @choice_stats = @survey.all_choices
   erb :'/surveys/results'
 end
