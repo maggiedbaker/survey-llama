@@ -3,7 +3,7 @@ get '/' do
 end
 
 get '/surveys' do 
-  @surverys = Survey.all
+  @surveys = Survey.all
   erb :'surveys/index'
 end
 
