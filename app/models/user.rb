@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
     return false if CompletedSurvey.where(user_id: current_user.id, survey_id: survey.id).empty?
     return true
   end
+
 end
