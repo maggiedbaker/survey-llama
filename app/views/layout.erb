@@ -22,7 +22,8 @@
 <ul class = "navbar">
 <% if logged_in? %>
   <li class = "bar"> <a href = "/surveys"> Surveys </a></li>
-  <li class="bar"><a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a></li>
+  <!-- changed this link to a profile page later -->
+  <li class="bar"><a href="/surveys">Yo! <%= current_user.username %></a></li>
   <li class = "bar"> <a href = "/logout"> Signout </a></li>
 <%else%>
   <li class = "bar"> <a href = "/surveys"> Surveys </a></li>
