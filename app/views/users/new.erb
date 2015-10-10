@@ -1,0 +1,17 @@
+<h1>Sign up to create and take surveys!</h2>
+
+<% if @errors %>
+  <% @errors.each do |error|%>
+    <%= message %>
+  <%end%>
+<%end%>
+
+<form method="post" action="/users">
+  <label for="signup-username">Username:</label>
+  <input id="signup-username" type="text" name="user[username]">
+  <label for="signup-password">Password:</label>
+  <input id="signup-password" type="password" name="user[password]">
+  <label for="signup-confirm-password">Confirm Password:</label>
+  <input id="signup-confirm-password" type="password" name="user[password_confirmation]">
+  <input type="submit" value="Create Account">
+</form>
