@@ -1,6 +1,6 @@
 /* CSS declarations go here */
-body {font-family: Vollkorn; font-size: 160%; line-height: 160%; }
-h1, h2, h3, h4, h5, h6 {font-family: Georgia; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #36AECC; font-style: italic; font-weight: 400;}
+body {background_color:##efefef; font-family:Arial,Helvetica,sans-serif; font-size: 160%; line-height: 160%; }
+h1, h2, h3, h4, h5, h6 {font-family:Arial,Helvetica,sans-serif; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #86a32d; font-weight: 400;}
 h1 {font-size: 1.8em;}
 h2 {font-size: 1.6em;}
 h3 {font-size: 1.4em;}
@@ -28,20 +28,40 @@ del {text-decoration: line-through; color: #777777;}
 
 footer { font-size: 0.7em; margin-top: 2em;}
 
+.navbar {
+    background-color:#484837;
+    width: 100%;
+    color:#e4e4e4;
+}
+
+.navbar a {
+
+    position:inline-block;
+    display:absolute;
+}
+.navbar a:hover {
+    color: #f2f2f1;
+}
+
 #content { margin: 0 auto; padding: 0 1em; max-width: 37em; position: relative; width: 61.8%;}
 
+ul {list-style-type: none;}
+li {list-style-type: none;
+}
+
 a {
-    color: #36AECC;
+    color: #83847a;
     text-decoration: none;
+
 }
 
 a:visited {
-    color: #AAA;
+    color: #83847a ;
 }
 
 a:hover {
-    color: #000;
-    text-decoration: underline;
+    color: #86a32d;
+
 }
 
 .logo {
