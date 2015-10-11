@@ -1,5 +1,4 @@
 class Survey < ActiveRecord::Base
-
   belongs_to :user
   has_many :questions
   has_many :completed_surveys
@@ -20,6 +19,7 @@ class Survey < ActiveRecord::Base
   def has_photo?
     self.photo != nil
   end
+
   def self.find_keyword(search_string)
     ## there has to be a better way to query with association through tables.
     ## my joins were working properly according to pry, i can see all the foreign keys link

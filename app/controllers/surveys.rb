@@ -41,11 +41,15 @@ get '/surveys/results/:title' do
 end
 
 get '/surveys/:title' do
-  if logged_in?
-    @survey = Survey.find_by(title: params[:title])
+  @survey = Survey.find_by(title: params[:title])
+  if current_user.can_take_survey?(@survey) #guard case returns user to home page if they try to access page directly
     erb :'/surveys/show'
   else
-    redirect '/login'
+    if logged_in?
+      redirect '/surveys'
+    else
+      redirect '/login'
+    end
   end
 end
 
