@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
+  def can_take_survey?(survey)
+    return true if CompletedSurvey.where(user_id: self.id, survey_id: survey.id).empty?
+    return false
+  end
+
 end
