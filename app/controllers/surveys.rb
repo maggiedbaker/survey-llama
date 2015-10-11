@@ -27,8 +27,8 @@ post '/surveys' do
   end
 end
 
-get '/surveys/:name' do
-  @survey = Survey.find_by(title: params[:name])
+get '/surveys/:title' do
+  @survey = Survey.find_by(title: params[:title])
   if logged_in?
     erb :'/surveys/show'
   else
@@ -36,17 +36,17 @@ get '/surveys/:name' do
   end
 end
 
-get '/surveys/:name/results' do
-  @survey = Survey.find_by(title: params[:name])
+get '/surveys/:title/results' do
+  @survey = Survey.find_by(title: params[:title])
   erb :'/surveys/results'
 end
 
-post '/surveys/:name' do
-  @survey = Survey.find_by(title: params[:name])
+post '/surveys/:text' do
+  @survey = Survey.find_by(title: params[:text])
   CompletedSurvey.create(user_id: current_user.id, survey_id: @survey.id)
-  @choice = Choice.find_by(text: params[:text]) # params might adjust when we create the surveys/show view
+  @choice = Choice.find_by(text: params[:response]) # params might adjust when we create the surveys/show view
   @choice.selected += 1
   @choice.save
-  erb :'surveys/results'
+  redirect ("/surveys/#{params[:title]}/results")
 end
 
