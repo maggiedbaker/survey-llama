@@ -12,7 +12,9 @@ class Survey < ActiveRecord::Base
   end
 
   def times_taken
-    self.choices.map { |choice| choice.selected }.inject(:+)
+    times = self.choices.map { |choice| choice.selected }.inject(:+)
+    return "1 person" if times == 1
+    return "#{times} people"
   end
 
 end
