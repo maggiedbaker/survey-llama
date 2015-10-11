@@ -42,11 +42,16 @@ del {text-decoration: line-through; color: #777777;}
     padding:0;
 }
 #nav_links{
-    color:white;
+    color:black;
     top:-75px;
     width: 200px;
     float:right;
     position: relative;
+    right:20px;
+}
+#search_form{
+    height:1em;
+    width:125px;
 }
 /*.navbar {
     top: 0px;
