@@ -17,4 +17,8 @@ class Survey < ActiveRecord::Base
     return "#{times} people"
   end
 
+  def has_photo?
+    self.photo != nil
+  end
+
 end
