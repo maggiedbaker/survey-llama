@@ -27,7 +27,7 @@ post '/surveys' do
   end
 end
 
-get '/surveys/:title/results' do
+get '/surveys/results/:title' do
   @survey = Survey.find_by(title: params[:title])
   erb :'/surveys/results'
 end
