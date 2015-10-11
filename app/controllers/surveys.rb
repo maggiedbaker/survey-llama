@@ -44,8 +44,8 @@ end
 post '/surveys/:title' do
   @survey = Survey.find_by(title: params[:title])
   CompletedSurvey.create(user_id: current_user.id, survey_id: @survey.id)
-  @choice = Choice.find_by(text: params[:response]) # params might adjust when we create the surveys/show view
+  @choice = Choice.find_by(text: URI.decode(params[:response])) # params might adjust when we create the surveys/show view
   @choice.selected += 1
   @choice.save
-  redirect ("/surveys/results/#{URI.escape(params[:title])}")
+  redirect ("/surveys/results/#{URI.escape(params[:title], Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))}")
 end
