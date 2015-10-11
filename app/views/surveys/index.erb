@@ -1,11 +1,11 @@
 <h2> List of surveys: </h2>
 
 <% @surveys.each do |survey| %>
-  <h3><a href = "/surveys/<%= survey.title%>"> <%=survey.title %> </a></h13>
-  <p>
-  <a href = "/surveys/<%=survey.title%>/results">Results </a>
-    <% if logged_in? && current_user.can_take_survey?(survey) %>
-      <a href="/surveys/<%=survey.title%>">Take Survey</a>
-      </p>
-    <%end%>
+  <h3><a href = "/surveys/<%= survey.title %>"> <%= survey.title %> </a></h3>
+    <p>
+     <a href = "/surveys/<%= survey.title %>/results">Results</a>
+      <% if survey.current_user_can_take? %>
+        <a href="/surveys/<%= survey.title %>">Take Survey</a>
+      <% end %>
+    </p>
 <%end%>

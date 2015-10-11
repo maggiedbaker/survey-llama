@@ -3,3 +3,12 @@
 <a href = "/surveys">
   <img src = "../images/logo.png" alt = "llama">
 </a>
+  <h5><% @survey.questions.first.text %></h5>
+    <form method="post" action="/surveys/<%= @survey.questions.first.text %>">
+      <ul>
+        <% @survey.questions.first.choices.each do |choice| %>
+          <li><input type="radio" name="response" value= "<%= choice.text %>"> <%= choice.text %></li>
+        <% end %>
+      </ul>
+    <input type= "submit" value="done" class "button">
+  </form>
