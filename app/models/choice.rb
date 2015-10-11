@@ -7,5 +7,4 @@ class Choice < ActiveRecord::Base
     return 0 if self.question.times_answered == 0
     (self.selected / self.question.times_answered)*100
   end
-
 end
