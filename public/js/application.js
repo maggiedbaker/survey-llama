@@ -29,6 +29,11 @@ $(document).ready(function() {
     else if ($(this).val() == "")
       $(this).val("Password");
   });
+  $('#search_form').click( function() {
+    debugger;
+    if ($(this).attr("placeholder") == "search")
+      $(this).attr("placeholder", "");
+  });
   // not working just yet, need to catch right object
   // $("#signup-password").keyup(function(){
   //     if ($(this).find("#list_conf") === undefined)

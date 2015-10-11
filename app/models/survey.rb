@@ -20,5 +20,20 @@ class Survey < ActiveRecord::Base
   def has_photo?
     self.photo != nil
   end
-
+  def self.find_keyword(search_string)
+    ## there has to be a better way to query with association through tables.
+    ## my joins were working properly according to pry, i can see all the foreign keys link
+    ## but the error was "text" is ambiguous, maybe the since not all tables will have the same
+    ## attributes?
+    surveys = Survey.where("title LIKE ?", "%#{search_string}%")
+    questions = Survey.joins(:questions).where("text LIKE ?", "%#{search_string}%")
+    choices = Choice.where("text LIKE ?", "%#{search_string}%")
+    surveys << questions
+    questions = []
+    choices.each do |choice|
+      questions << Survey.joins(:questions).where("id LIKE ?", "%#{choice.question_id}%")
+    end
+    surveys << questions
+    surveys.flatten.uniq
+  end
 end

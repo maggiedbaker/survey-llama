@@ -7,6 +7,11 @@ get '/surveys' do
   erb :'/surveys/index'
 end
 
+post '/surveys/search' do
+  @surveys = Survey.find_keyword(params[:search])
+  erb :'/surveys/index'
+end
+
 get '/surveys/new' do
   erb :'/surveys/new'
 end
