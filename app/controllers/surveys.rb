@@ -27,18 +27,18 @@ post '/surveys' do
   end
 end
 
-get '/surveys/:title' do
+get '/surveys/:title/results' do
   @survey = Survey.find_by(title: params[:title])
+  erb :'/surveys/results'
+end
+
+get '/surveys/:title' do
   if logged_in?
+    @survey = Survey.find_by(title: params[:title])
     erb :'/surveys/show'
   else
     redirect '/login'
   end
-end
-
-get '/surveys/:title/results' do
-  @survey = Survey.find_by(title: params[:title])
-  erb :'/surveys/results'
 end
 
 post '/surveys/:title' do
