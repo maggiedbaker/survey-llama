@@ -1,6 +1,9 @@
 <h1>Results for <%=@survey.title%></h2>
 <ul>
-  <% @choice_stats.each do |choice| %>
-    <li><%=choice[0]%>: <%=choice[1]%></li>
+<% @survey.questions.each do |question| %>
+<h2><%= question.text %></h2>
+  <% question.choices.each do |choice| %>
+  <h3><%= choice.text %> : <%= choice.percentage_chosen%>%</h3>
   <% end %>
+<%end%>
 </ul>
