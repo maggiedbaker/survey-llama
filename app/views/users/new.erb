@@ -1,4 +1,4 @@
-<h1>Sign up to create and take surveys!</h2>
+<h5>Sign up to create and take surveys!</h5>
 
 <% if @errors %>
   <% @errors.each do |error|%>
@@ -6,12 +6,11 @@
   <%end%>
 <%end%>
 
-<form method="post" action="/signup">
-  <label for="signup-username">Username:</label>
-  <input id="signup-username" type="text" name="user[username]"><br>
-  <label for="signup-password">Password:</label>
-  <input id="signup-password" type="password" name="user[password]"><br>
-  <label for="signup-confirm-password">Confirm Password:</label>
-  <input id="signup-confirm-password" type="password" name="user[password_confirmation]"><br>
-  <input type="submit" value="Create Account">
+<form id="login_form" method="post" action="/signup">
+  <ul>
+    <li><input id="signup-username" type="text" name="user[username]" value="Username"></li>
+    <li id="list_conf"><input id="signup-password" type="password" name="user[password]" value="Password"></li>
+    <li><input id="signup-confirm-password" type="password" name="user[password_confirmation]" value="Password"></li>
+    <li><input type="submit" value="Create Account"></li>
+  </ul>
 </form>

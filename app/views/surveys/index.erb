@@ -1,11 +1,7 @@
-<h2> List of surveys: </h2>
-
 <% @surveys.each do |survey| %>
-  <h3><%= survey.title %></h3>
-    <p>
-     <a href = "/surveys/results/<%= survey.title %>">Results</a>
-      <% if logged_in? && current_user.can_take_survey?(survey) %>
-        <a href="/surveys/<%= survey.title %>">Take Survey</a>
-      <% end %>
-    </p>
+  <h5 id="title_id"><%= survey.title %></h5>
+    <a href="/surveys/results/<%= survey.title %>"><font size="3">Results</font></a>
+    <% if logged_in? && current_user.can_take_survey?(survey) %>
+        <a href="/surveys/<%= survey.title %>"><font size="3">Take Survey</font></a>
+    <% end %>
 <%end%>

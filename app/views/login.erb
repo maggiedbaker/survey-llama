@@ -1,17 +1,15 @@
-<h1>Sign in to create and take surveys.</h1>
-<a href="/signup">(or create an account here)</a>
-
+<p>Sign in to create and take surveys.</p>
 <% if @errors %>
   <% @errors.each do |error| %>
     <%= error %>
   <%end%>
 <%end%>
-
-<form method="post" action="/login">
-  <label for="username">Username:</label>
-  <input id="username" type="text" name="username">
-  <label for="password">Password:</label>
-  <input id="password" type="password" name="password">
-  <input type="submit" value="Sign In">
-</form>
+  <form id="login_form" method="post" action="/login">
+    <ul>
+      <li><input id="username" type="text" name="username" value="Username"></li>
+      <li><input id="password" type="password" name="password" value="Password"></li>
+      <li><input type="submit" value="Sign In"></li>
+    </ul>
+  </form>
+Not a member? Sign up <a href="/signup">here.</a>
 
