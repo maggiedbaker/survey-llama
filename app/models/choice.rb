@@ -5,7 +5,7 @@ class Choice < ActiveRecord::Base
 
   def percentage_chosen
     return 0 if self.question.times_answered == 0
-    (self.selected / self.question.times_answered)*100
+    ((self.selected.to_f / self.question.times_answered.to_f)*100).round
   end
 
 end
