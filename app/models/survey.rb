@@ -1,5 +1,4 @@
 class Survey < ActiveRecord::Base
-
   belongs_to :user
   has_many :questions
   has_many :completed_surveys
@@ -16,5 +15,4 @@ class Survey < ActiveRecord::Base
     return "1 person" if times == 1
     return "#{times} people"
   end
-
 end

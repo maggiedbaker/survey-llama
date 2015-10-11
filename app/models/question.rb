@@ -7,5 +7,4 @@ class Question < ActiveRecord::Base
   def times_answered
     self.choices.map { |choice| choice.selected }.inject(:+)
   end
-
 end
