@@ -11,4 +11,8 @@ class Survey < ActiveRecord::Base
     self.questions.first.choices.map { |choice| [choice.text, choice.selected] }
   end
 
+  def times_taken
+    self.choices.map { |choice| choice.selected }.inject(:+)
+  end
+
 end
