@@ -1,5 +1,5 @@
 <p><font size="6"><b>Results:</b></font> <%=@survey.title%></p>
-<p><font size="6"><b>Taken by:</b></font> <%=@survey.times_taken%> people.</p>
+<p><font size="6"><b>Taken by:</b></font> <%=@survey.times_taken%>.</p>
 <ul>
   <% @survey.questions.each do |question| %>
   <p><b><font size="5"><%= question.text %></font></b></p>

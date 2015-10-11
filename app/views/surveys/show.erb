@@ -1,10 +1,10 @@
 <%= @survey.title %>
 
 <h5><% @survey.questions.first.text %></h5>
-<form method="post" action="/surveys/<%= @survey.title %>">
+<form method="post" action="/surveys/<%= URI.escape(@survey.title, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]")) %>">
   <ul>
     <% @survey.questions.first.choices.each do |choice| %>
-      <li><input type="radio" name="response" value= "<%= choice.text %>"> <%= choice.text %></li>
+      <li><input type="radio" name="response" value= "<%= URI.escape(choice.text, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]")) %>"> <%= choice.text %></li>
     <% end %>
   </ul>
   <input type= "submit" value="done" class "button">
