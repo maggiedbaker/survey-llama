@@ -41,8 +41,8 @@ get '/surveys/:title/results' do
   erb :'/surveys/results'
 end
 
-post '/surveys/:text' do
-  @survey = Survey.find_by(title: params[:text])
+post '/surveys/:title' do
+  @survey = Survey.find_by(title: params[:title])
   CompletedSurvey.create(user_id: current_user.id, survey_id: @survey.id)
   @choice = Choice.find_by(text: params[:response]) # params might adjust when we create the surveys/show view
   @choice.selected += 1
