@@ -1,10 +1,12 @@
-<h1>Results for <%=@survey.title%></h2>
-<h2>Taken by <%=@survey.times_taken%>.</h2>
+<p><font size="6"><b>Results:</b></font> <%=@survey.title%></p>
+<p><font size="6"><b>Taken by:</b></font> <%=@survey.times_taken%> people.</p>
 <ul>
-<% @survey.questions.each do |question| %>
-<h2><%= question.text %></h2>
-  <% question.choices.each do |choice| %>
-  <h3><%= choice.text %> : <%= choice.percentage_chosen%>%</h3>
-  <% end %>
-<%end%>
+  <% @survey.questions.each do |question| %>
+  <p><b><font size="5"><%= question.text %></font></b></p>
+    <ul>
+    <% question.choices.each do |choice| %>
+    <li><font size="4"><b><%= choice.text %></b> : <%= choice.percentage_chosen  %>%</font></li>
+    <% end %>
+    </ul>
+  <%end%>
 </ul>
