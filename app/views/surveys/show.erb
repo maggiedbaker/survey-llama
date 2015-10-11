@@ -1,6 +1,10 @@
 <%= @survey.title %>
 
-<h5><% @survey.questions.first.text %></h5>
+<% if @survey.has_photo? %>
+<div><img src="<%=@survey.photo%>" alt="<%=@survey.title%>" width="300"></div>
+<%end%>
+
+<h5><%= @survey.questions.first.text %></h5>
 <form method="post" action="/surveys/<%= URI.escape(@survey.title, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]")) %>">
   <ul>
     <% @survey.questions.first.choices.each do |choice| %>
