@@ -57,3 +57,8 @@ post '/surveys/:title' do
   @choice.save
   redirect ("/surveys/results/#{URI.escape(params[:title], Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))}")
 end
+
+not_found do
+  status 404
+  erb :_404, layout: false
+end
