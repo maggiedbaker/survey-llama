@@ -4,8 +4,8 @@
   <h3><a href = "/surveys/<%= survey.title%>"> <%=survey.title %> </a></h13>
   <p>
   <a href = "/surveys/<%=survey.title%>/results">Results </a>
-  <% if survey.current_user_can_take? %>
-  <a href="/surveys/<%=survey.title%>">Take Survey</a>
-  </p>
-  <%end%>
+    <% if logged_in? && current_user.can_take_survey?(survey) %>
+      <a href="/surveys/<%=survey.title%>">Take Survey</a>
+      </p>
+    <%end%>
 <%end%>
