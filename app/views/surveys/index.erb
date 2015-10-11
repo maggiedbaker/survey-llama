@@ -3,7 +3,7 @@
 <% @surveys.each do |survey| %>
   <h3><a href = "/surveys/<%= survey.title %>"> <%= survey.title %> </a></h3>
     <p>
-     <a href = "/surveys/<%= survey.title %>/results">Results</a>
+     <a href = "/surveys/results/<%= survey.title %>">Results</a>
       <% if logged_in? && current_user.can_take_survey?(survey) %>
         <a href="/surveys/<%= survey.title %>">Take Survey</a>
       <% end %>

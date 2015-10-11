@@ -27,7 +27,7 @@ post '/surveys' do
   end
 end
 
-get '/surveys/:title/results' do
+get '/surveys/results/:title' do
   @survey = Survey.find_by(title: params[:title])
   erb :'/surveys/results'
 end
@@ -47,6 +47,6 @@ post '/surveys/:title' do
   @choice = Choice.find_by(text: params[:response]) # params might adjust when we create the surveys/show view
   @choice.selected += 1
   @choice.save
-  redirect ("/surveys/#{params[:title]}/results")
+  redirect ("/surveys")
 end
 
