@@ -1,7 +1,7 @@
 <%= @survey.title %>
 
 <% if @survey.has_photo? %>
-<div><img src="<%=@survey.photo%>" alt="<%=@survey.title%>" width="300"></div>
+  <div><img src="<%=@survey.photo%>" alt="" width="300"></div>
 <%end%>
 
 <h5><%= @survey.questions.first.text %></h5>

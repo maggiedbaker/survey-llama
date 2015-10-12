@@ -8,6 +8,7 @@ get '/surveys' do
 end
 
 post '/surveys/search' do
+  #need to stop empty searches
   @surveys = Survey.find_keyword(params[:search])
   erb :'/surveys/index'
 end

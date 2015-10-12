@@ -25,15 +25,19 @@ class Survey < ActiveRecord::Base
     ## my joins were working properly according to pry, i can see all the foreign keys link
     ## but the error was "text" is ambiguous, maybe the since not all tables will have the same
     ## attributes?
+    collection = []
     surveys = Survey.where("title LIKE ?", "%#{search_string}%")
+    collection << surveys
     questions = Survey.joins(:questions).where("text LIKE ?", "%#{search_string}%")
+    collection << questions
     choices = Choice.where("text LIKE ?", "%#{search_string}%")
-    surveys << questions
+
     questions = []
     choices.each do |choice|
-      questions << Survey.joins(:questions).where("id LIKE ?", "%#{choice.question_id}%")
+      questions << Survey.joins(:questions).where(id: choice.question_id)
     end
-    surveys << questions
-    surveys.flatten.uniq
+    collection << questions
+
+    collection.flatten.uniq
   end
 end
