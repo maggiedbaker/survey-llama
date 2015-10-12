@@ -1,5 +1,5 @@
 class Choice < ActiveRecord::Base
-  belongs_to :question
+  belongs_to :question, dependent: :destroy
 
   validates :question_id, :text, :selected, presence: true
   def ascii_all_day(percentage)
