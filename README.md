@@ -1,5 +1,7 @@
 Survey Llama
 
+This was a web application built on Sinatra, Active Record, and HTML/CSS. The purpose was to emulate basic functionality of Survey Gorilla.
+
 Serving all of your survey needs since 2015.
 
 Features -
