@@ -1,6 +1,6 @@
 Survey Llama
 
-This was a web application built on Sinatra, Active Record, and HTML/CSS. It was built in 3 days time with one other person. The purpose was to emulate basic functionality of Survey Gorilla.
+This was a web application built on Ruby, Sinatra, ActiveRecord, PostgreSQL, and HTML/CSS. It was built in 3 days time with one other person. The purpose was to emulate basic functionality of Survey Gorilla.
 
 Serving all of your survey needs since 2015.
 
